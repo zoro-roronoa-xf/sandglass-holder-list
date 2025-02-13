@@ -12,22 +12,22 @@ type SGState = IdlAccounts<Sandglass>["sandglassAccount"];
 
 export type ResultState = {
   address: string;
-  // amount: number;
+  amount: number;
 };
 
-function setResultData(data: ResultState[], userAddress: string, _amount: number) {
+function setResultData(data: ResultState[], userAddress: string, amount: number) {
   const index = data.findIndex((result) => result.address === userAddress);
 
   if (index === -1) {
     data = [
       {
         address: userAddress,
-        // amount: amount,
+        amount: amount,
       },
       ...data,
     ];
   } else {
-    // data[index].amount += amount;
+    data[index].amount += amount;
   }
 
   return data;
